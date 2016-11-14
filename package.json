@@ -1,0 +1,32 @@
+{
+  "name": "webpack_template",
+  "version": "0.0.1",
+  "description": "Template for developing webpack-based apps with gulp.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/andrew-murray/webpack-template.git"
+  },
+  "keywords": [
+	"webpack", 
+	"babel", 
+	"template"
+  ],
+  "author": "Andrew Murray",
+  "license": "MIT",
+  "homepage": "http://www.github.com/andrew-murray/webpack-template"
+}
