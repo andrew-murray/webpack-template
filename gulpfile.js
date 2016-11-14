@@ -3,9 +3,8 @@ var gutil = require("gulp-util");
 var webpack = require("webpack");
 var webpackDevServer = require("webpack-dev-server");
 
-var basePath = "www";
-var jsPath = basePath + "/" + "js";
-var rootScript =  jsPath + "/" + "main.js";
+var basePath = "./www";
+var rootScript =  basePath + "/" + "main.js";
 
 var webpackConfig = {
   debug: true,
