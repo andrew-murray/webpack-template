@@ -15,16 +15,17 @@
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-node-externals": "^1.5.4"
   },
   "repository": {
     "type": "git",
     "url": "https://www.github.com/andrew-murray/webpack-template.git"
   },
   "keywords": [
-	"webpack", 
-	"babel", 
-	"template"
+    "webpack",
+    "babel",
+    "template"
   ],
   "author": "Andrew Murray",
   "license": "MIT",

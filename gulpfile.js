@@ -2,6 +2,7 @@ var gulp  = require('gulp');
 var gutil = require("gulp-util");
 var webpack = require("webpack");
 var webpackDevServer = require("webpack-dev-server");
+var nodeExternals = require('webpack-node-externals');
 
 var basePath = "./www";
 var rootScript =  basePath + "/" + "main.js";
@@ -31,7 +32,10 @@ var webpackConfig = {
       path: __dirname + "/" + basePath,
       filename: "[name].bundle.js",
       chunkFilename: "[id].bundle.js"
-  }
+  },
+  externals : [
+    nodeExternals()
+  ]
 };
 
 var webpackCompiler = webpack( webpackConfig );
@@ -52,7 +56,7 @@ gulp.task("webpack-serve", function(callback)
 {
     // Start a webpack-dev-server
   var devServer = new webpackDevServer(
-	webpackCompiler, 
+	webpackCompiler,
 	{
 		contentBase : basePath,
 		stats: {
