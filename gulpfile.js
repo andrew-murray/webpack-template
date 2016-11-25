@@ -2,8 +2,6 @@ var gulp  = require('gulp');
 var gutil = require("gulp-util");
 var webpack = require("webpack");
 var webpackDevServer = require("webpack-dev-server");
-var nodeExternals = require('webpack-node-externals');
-
 var basePath = "./www";
 var rootScript =  basePath + "/" + "main.js";
 
@@ -16,15 +14,25 @@ var webpackConfig = {
   entry: {
       "main" : rootScript
   },
+  resolve: {
+    alias: {
+        // example of an require alias, that can arise from changes in folder
+        // structure and such, help webpack resolve the imports
+        'jquery-ui': 'jquery-ui/ui',
+    }
+  },
   module: {
-      loaders: [{
+      loaders: [
+        {
           test: /.js?$/,
           loader: 'babel-loader',
           exclude: /(node_modules|bower_components)/,
           query: {
               presets: ['es2015']
           }
-      }]
+        },
+        { test: /\.css$/, loader: "style-loader!css-loader" }
+    ]
   },
   output: {
       // Make sure to use [name] or [id] in output.filename
@@ -32,11 +40,20 @@ var webpackConfig = {
       path: __dirname + "/" + basePath,
       filename: "[name].bundle.js",
       chunkFilename: "[id].bundle.js"
-  },
-  externals : [
-    nodeExternals()
-  ]
+  }
 };
+
+// tends to be useful in debugging
+const bundleDependencies = false;
+if( !bundleDependencies )
+{
+  webpackConfig.externals = {
+    // example of how to deal with modules that declare themselves
+    // under different names in the browser
+    // than in npm
+    jquery : 'jQuery'
+  };
+}
 
 var webpackCompiler = webpack( webpackConfig );
 
